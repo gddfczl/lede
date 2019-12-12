@@ -104,7 +104,7 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_kmod-fs-nfs=y
           CONFIG_PACKAGE_kmod-fs-nfs-common=y
-          CONFIG_PACKAGE_kmod-fuse=y
+          #CONFIG_PACKAGE_kmod-fuse=y
           CONFIG_PACKAGE_kmod-fs-f2fs=y
           CONFIG_PACKAGE_kmod-fs-squashfs=y
           CONFIG_PACKAGE_kmod-fs-ext4=y
@@ -118,9 +118,9 @@ jobs:
           EOF
           
            # 添加挂载卸载工具:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_badblocks=y
-          EOF
+           # cat >> .config <<EOF
+           # CONFIG_PACKAGE_badblocks=y
+           #EOF
           
           # 添加SCSI支持:
            #cat >> .config <<EOF
@@ -179,8 +179,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-mwan3helper=y
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-mjpg-streamer=y
-          CONFIG_PACKAGE_luci-app-samba=y
-          CONFIG_PACKAGE_luci-app-samba4=y
+          #CONFIG_PACKAGE_luci-app-samba=y
+          #CONFIG_PACKAGE_luci-app-samba4=y
           EOF
 
           # LuCI主题:
