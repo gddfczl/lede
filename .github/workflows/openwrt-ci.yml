@@ -189,6 +189,13 @@ jobs:
           CONFIG_PACKAGE_luci-theme-netgear=y
           EOF
           
+          # 挂载编码:
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_kmod-nls-cp437=y
+          CONFIG_PACKAGE_kmod-nls-iso8859-1=y
+          CONFIG_PACKAGE_kmod-nls-utf8=y
+          EOF
+          
           # 常用软件包:
           cat >> .config <<EOF
           CONFIG_PACKAGE_curl=y
