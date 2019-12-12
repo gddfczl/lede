@@ -104,9 +104,12 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_kmod-fs-nfs=y
           CONFIG_PACKAGE_kmod-fs-nfs-common=y
-          CONFIG_PACKAGE_kmod-fs-nfs-v3=y
-          CONFIG_PACKAGE_kmod-fs-nfs-v4=y
+          CONFIG_PACKAGE_kmod-fuse=y
+          CONFIG_PACKAGE_kmod-fs-f2fs=y
           CONFIG_PACKAGE_kmod-fs-squashfs=y
+          CONFIG_PACKAGE_kmod-fs-ext4=y
+          CONFIG_PACKAGE_kmod-fs-vfat=y
+          CONFIG_PACKAGE_kmod-fs-exfat=y
           EOF
           
           # 添加USB挂载:
@@ -120,9 +123,9 @@ jobs:
           EOF
           
           # 添加SCSI支持:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_kmod-scsi-core=y
-          EOF
+           #cat >> .config <<EOF
+           #CONFIG_PACKAGE_kmod-scsi-core=y
+           #EOF
 
           # 摄像头支持:
           cat >> .config <<EOF
@@ -143,15 +146,7 @@ jobs:
           CONFIG_PACKAGE_kmod-usb2-pci=y
           CONFIG_PACKAGE_kmod-usb3=y
           EOF
-          
-          # 文件系统支持:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_kmod-fs-ext4=y
-          CONFIG_PACKAGE_kmod-fs-vfat=y
-          CONFIG_PACKAGE_kmod-fs-exfat=y
-          CONFIG_PACKAGE_kmod-fs-ntfs=y
-          EOF
-          
+                           
           # 常用LuCI插件选择:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
