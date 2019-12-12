@@ -194,11 +194,6 @@ jobs:
           CONFIG_PACKAGE_luci-theme-netgear=y
           EOF
           
-          # K3屏幕控制:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_k3screenctrl=y
-          EOF
-
           # 常用软件包:
           cat >> .config <<EOF
           CONFIG_PACKAGE_curl=y
