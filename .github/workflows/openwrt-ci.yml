@@ -191,7 +191,6 @@ jobs:
           
           # 挂载编码:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_kmod-nls-base=y
           CONFIG_PACKAGE_kmod-nls-cp936=y
           CONFIG_PACKAGE_kmod-nls-cp437=y
           CONFIG_PACKAGE_kmod-nls-utf8=y
