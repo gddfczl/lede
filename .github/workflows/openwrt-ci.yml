@@ -110,13 +110,8 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-ext4=y
           CONFIG_PACKAGE_kmod-fs-vfat=y
           CONFIG_PACKAGE_kmod-fs-exfat=y
-          EOF
-          
-          # 添加USB挂载:
-          cat >> .config <<EOF
-          CONFIG_PACKAGE_block-mount=y
-          EOF
-          
+          EOF      
+         
            # 添加挂载卸载工具:
            # cat >> .config <<EOF
            # CONFIG_PACKAGE_badblocks=y
@@ -191,9 +186,11 @@ jobs:
           
           # 挂载编码:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_kmod-nls-base=y
           CONFIG_PACKAGE_kmod-nls-cp936=y
           CONFIG_PACKAGE_kmod-nls-cp437=y
           CONFIG_PACKAGE_kmod-nls-utf8=y
+          CONFIG_PACKAGE_kmod-nls-iso8859-1=y
           EOF
           
           # 常用软件包:
