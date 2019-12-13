@@ -99,6 +99,11 @@ jobs:
           CONFIG_PACKAGE_ipv6helper=y
           CONFIG_PACKAGE_block-mount=y
           EOF
+          
+          # USB挂载:
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_block-mount=y
+          EOF
 
           # 多文件系统支持:
           cat >> .config <<EOF
