@@ -48,23 +48,18 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-
       - name: Costom configure file
         run: |
           rm -f ./.config*
           touch ./.config
-
           #
           # ========================固件定制部分========================
           # 
-
           # 
           # 如果不对本区块做出任何编辑, 则生成默认配置固件. 
           # 
-
           # 以下为定制化固件选项和说明:
           #
-
           #
           # 有些插件/选项是默认开启的, 如果想要关闭, 请参照以下示例进行编写:
           # 
@@ -75,24 +70,20 @@ jobs:
           #         |  EOF                                    |
           #          =========================================
           #
-
           # 
           cat >> .config <<EOF
           CONFIG_TARGET_bcm53xx=y
           CONFIG_TARGET_bcm53xx_DEVICE_phicomm-k3=y
           CONFIG_TARGET_BOARD="bcm53xx"
           EOF
-
           # 固件压缩:
            #cat >> .config <<EOF
            #CONFIG_TARGET_IMAGES_GZIP=y
            #EOF
-
           # 编译UEFI固件:
           #cat >> .config <<EOF
           #CONFIG_EFI_IMAGES=y
           #EOF
-
           # IPv6支持:
           #cat >> .config <<EOF
           #CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
@@ -103,7 +94,6 @@ jobs:
           #cat >> .config <<EOF
           #CONFIG_PACKAGE_block-mount=y
           #EOF
-
           # 多文件系统支持:
           cat >> .config <<EOF
           CONFIG_PACKAGE_kmod-fs-nfs=y
@@ -125,14 +115,12 @@ jobs:
            #cat >> .config <<EOF
            #CONFIG_PACKAGE_kmod-scsi-core=y
            #EOF
-
           # 摄像头支持:
           cat >> .config <<EOF
           CONFIG_PACKAGE_kmod-video-core=y
           CONFIG_PACKAGE_kmod-video-uvc=y
           CONFIG_PACKAGE_kmod-video-videobuf2=y
           EOF
-
           # USB3.0支持:
           cat >> .config <<EOF
           CONFIG_PACKAGE_kmod-usb-ohci=y
@@ -173,6 +161,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-wol=y
           CONFIG_PACKAGE_luci-app-sfe=y
           CONFIG_PACKAGE_luci-app-zerotier=y
+          CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
           CONFIG_PACKAGE_luci-app-qbittorrent=y
           CONFIG_PACKAGE_luci-app-mwan3=y
           CONFIG_PACKAGE_luci-app-mwan3helper=y
@@ -181,7 +170,6 @@ jobs:
           #CONFIG_PACKAGE_luci-app-samba=y
           #CONFIG_PACKAGE_luci-app-samba4=y
           EOF
-
           # LuCI主题:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-theme-argon=y
@@ -211,7 +199,6 @@ jobs:
           # 
           # ========================固件定制部分结束========================
           # 
-
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
       - name: Download package source code
